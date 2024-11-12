@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6uovpmy5skln"]
+
+[ext_resource type="Texture2D" uid="uid://cewih7xcxp7cj" path="res://Sprites/pacman.png" id="1_a4jxa"]
+[ext_resource type="Script" path="res://pacman.gd" id="1_dl4tr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpj0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mjwr"]
+size = Vector2(26, 26)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2dyug"]
+
+[node name="Pacman" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_dl4tr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_a4jxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+shape = SubResource("CircleShape2D_jpj0v")
+
+[node name="Area_Menor" type="Area2D" parent="."]
+
+[node name="colisao1" type="CollisionShape2D" parent="Area_Menor"]
+shape = SubResource("RectangleShape2D_6mjwr")
+
+[node name="Area_Maior" type="Area2D" parent="."]
+
+[node name="colisao2" type="CollisionShape2D" parent="Area_Maior"]
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_2dyug")
+
+[connection signal="area_entered" from="Area_Menor" to="." method="_on_area_menor_area_entered"]
+[connection signal="area_exited" from="Area_Menor" to="." method="_on_area_menor_area_exited"]
+[connection signal="area_shape_entered" from="Area_Menor" to="." method="_on_area_menor_area_shape_entered"]
+[connection signal="area_shape_entered" from="Area_Maior" to="." method="_on_area_maior_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area_Maior" to="." method="_on_area_maior_area_shape_exited"]
+[connection signal="body_entered" from="Area_Maior" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area_Maior" to="." method="_on_area_2d_body_exited"]

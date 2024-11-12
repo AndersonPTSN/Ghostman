@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://6s3ghwwklqmj"]
+
+[ext_resource type="Script" path="res://Fantasma.gd" id="1_ff44f"]
+[ext_resource type="Texture2D" uid="uid://b2t4hjcirvb2s" path="res://Sprites/fantasma.png" id="2_fe883"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfpvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67lan"]
+size = Vector2(20, 26)
+
+[node name="Fantasma" type="CharacterBody2D"]
+script = ExtResource("1_ff44f")
+
+[node name="colisao3" type="CollisionShape2D" parent="."]
+scale = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_qfpvo")
+one_way_collision_margin = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_fe883")
+
+[node name="Area_Menor_Fantasma" type="Area2D" parent="."]
+
+[node name="colisao1" type="CollisionShape2D" parent="Area_Menor_Fantasma"]
+light_mask = 4
+visibility_layer = 4
+texture_filter = 1
+shape = SubResource("RectangleShape2D_67lan")
+one_way_collision_margin = 0.0
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="colisao2" type="CollisionShape2D" parent="Area2D2"]
+scale = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_qfpvo")
+one_way_collision_margin = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5.5, 5.5)
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_exited" from="Area2D2" to="." method="_on_area_2d_2_area_exited"]

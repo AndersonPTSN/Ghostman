@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://b70eykudbngsv"]
+
+[ext_resource type="PackedScene" uid="uid://bj1wloux2gsvl" path="res://piso.tscn" id="1_7p72e"]
+[ext_resource type="PackedScene" uid="uid://6s3ghwwklqmj" path="res://fantasma.tscn" id="1_a8u5i"]
+[ext_resource type="PackedScene" uid="uid://7va6o5q4gdo6" path="res://parede.tscn" id="2_57512"]
+[ext_resource type="PackedScene" uid="uid://btdhnmjrn03cm" path="res://doce.tscn" id="3_1kxf0"]
+[ext_resource type="PackedScene" uid="uid://c6uovpmy5skln" path="res://pacman.tscn" id="3_kw4nw"]
+
+[node name="Campo" type="Node2D"]
+
+[node name="Piso" type="Sprite2D" parent="."]
+
+[node name="Piso" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(150, 152)
+scale = Vector2(3, 3)
+
+[node name="Piso2" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(450, 152)
+scale = Vector2(3, 3)
+
+[node name="Piso3" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(750, 152)
+scale = Vector2(3, 3)
+
+[node name="Piso4" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(150, 455)
+scale = Vector2(3, 3)
+
+[node name="Piso5" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(450, 455)
+scale = Vector2(3, 3)
+
+[node name="Piso6" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(750, 455)
+scale = Vector2(3, 3)
+
+[node name="Piso7" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(150, 758)
+scale = Vector2(3, 3)
+
+[node name="Piso8" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(450, 758)
+scale = Vector2(3, 3)
+
+[node name="Piso9" parent="Piso" instance=ExtResource("1_7p72e")]
+position = Vector2(750, 758)
+scale = Vector2(3, 3)
+
+[node name="Parede" type="Sprite2D" parent="."]
+
+[node name="Parede1" parent="Parede" instance=ExtResource("2_57512")]
+position = Vector2(-13, 456)
+scale = Vector2(1, 50)
+collision_layer = 4
+
+[node name="Parede2" parent="Parede" instance=ExtResource("2_57512")]
+position = Vector2(914, 449)
+scale = Vector2(1, 50)
+collision_layer = 4
+
+[node name="Parede3" parent="Parede" instance=ExtResource("2_57512")]
+position = Vector2(461, 923)
+rotation = 1.5708
+scale = Vector2(1, 50)
+collision_layer = 4
+
+[node name="Parede4" parent="Parede" instance=ExtResource("2_57512")]
+position = Vector2(443, -11)
+rotation = 1.5708
+scale = Vector2(1, 50)
+collision_layer = 4
+
+[node name="Doce" parent="." instance=ExtResource("3_1kxf0")]
+position = Vector2(-456, 257)
+
+[node name="Doce2" parent="." instance=ExtResource("3_1kxf0")]
+position = Vector2(95, 440)
+
+[node name="Fantasma" parent="." instance=ExtResource("1_a8u5i")]
+position = Vector2(450, 450)
+collision_layer = 5
+
+[node name="Pacman" parent="." instance=ExtResource("3_kw4nw")]
+position = Vector2(240, 451)
+collision_mask = 2

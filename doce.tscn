@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://btdhnmjrn03cm"]
+
+[ext_resource type="Script" path="res://doce.gd" id="1_3r3ak"]
+[ext_resource type="Texture2D" uid="uid://b2eq30ra5h3y4" path="res://Sprites/doce.png" id="1_xusg1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8elw5"]
+
+[node name="Doce" type="Area2D"]
+collision_layer = 5
+script = ExtResource("1_3r3ak")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_xusg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8elw5")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
